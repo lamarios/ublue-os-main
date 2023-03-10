@@ -22,7 +22,8 @@
         "restic",
         "steam-devices",
         "tailscale",
-        "zsh"
+        "zsh",
+        "htop"
       ],
       "silverblue": [
         "ffmpegthumbnailer",
