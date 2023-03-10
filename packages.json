@@ -15,11 +15,18 @@
                 "openssl",
                 "pipewire-codec-aptx",
                 "smartmontools",
-                "vim"
+                "vim",
+		"autojump-zsh",
+		"i2c-tools",
+		"corectrl",
+		"restic",
+		"tailscale",
+		"zsh"
             ],
             "silverblue": [
                 "ffmpegthumbnailer",
-                "gnome-tweaks"
+                "gnome-tweaks",
+		"gnome-console"
             ],
             "lxqt": [
                 "breeze-cursor-theme",
