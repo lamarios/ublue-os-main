@@ -20,6 +20,8 @@
         "i2c-tools",
         "corectrl",
         "restic",
+        "steam-devices",
+        "tailscale",
         "zsh"
       ],
       "silverblue": [
