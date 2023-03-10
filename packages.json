@@ -20,7 +20,6 @@
         "i2c-tools",
         "corectrl",
         "restic",
-        "tailscale",
         "zsh"
       ],
       "silverblue": [
