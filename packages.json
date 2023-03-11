@@ -30,7 +30,7 @@
         "ffmpegthumbnailer",
         "gnome-tweaks",
         "gnome-console",
-        "gnome-shell-extension-appindicator",
+        "gnome-shell-extension-appindicator"
       ],
       "lxqt": [
         "breeze-cursor-theme",
