@@ -1,0 +1,5 @@
+[org/gnome/desktop/wm/keybindings]
+
+close=['<Super>q']
+cycle-group=['<Super>w']
+cycle-group-backward=['<Shift><Super>w']
