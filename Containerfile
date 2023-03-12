@@ -13,6 +13,9 @@ ADD post-install.sh /tmp/post-install.sh
 ADD packages.json /tmp/packages.json
 ADD repos/tailscale.repo /etc/yum.repos.d/tailscale.repo
 ADD config/etc/xdg/user-dirs.defaults /etc/xdg/user-dirs.defaults
+ADD config/etc/dconf/db/local.d/01-keybindings /etc/dconf/db/local.d/01-keybindings
+
+RUN dconf update
 
 COPY --from=ghcr.io/ublue-os/config:latest /rpms /tmp/rpms
 
