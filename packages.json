@@ -23,6 +23,7 @@
         "steam-devices",
         "tailscale",
         "zsh",
+        "docker-compose",
         "htop"
       ],
       "silverblue": [
