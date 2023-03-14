@@ -14,6 +14,9 @@ ADD packages.json /tmp/packages.json
 ADD repos/tailscale.repo /etc/yum.repos.d/tailscale.repo
 ADD config/etc/xdg/user-dirs.defaults /etc/xdg/user-dirs.defaults
 ADD config/etc/dconf/db/local.d/01-keybindings /etc/dconf/db/local.d/01-keybindings
+ADD custom-scripts/update-distrobox-arch /usr/bin/update-distrobox-arch
+
+RUN chmod +x /usr/bin/update-distrobox-arch
 
 RUN dconf update
 

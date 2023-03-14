@@ -4,13 +4,14 @@
       "all": [
         "distrobox",
         "ffmpeg",
-                "ffmpeg-libs",
-                "just",
+        "ffmpeg-libs",
+        "just",
         "kernel-devel-matched",
         "libva-intel-driver",
         "libva-utils",
         "mesa-va-drivers-freeworld",
-                "nvme-cli",
+        "mesa-vdpau-drivers-freeworld",
+        "nvme-cli",
         "nvtop",
         "openssl",
         "pipewire-codec-aptx",
@@ -170,17 +171,17 @@
     },
     "exclude": {
       "all": [
-      "libavcodec-free",
-                "libavdevice-free",
-                "libavfilter-free",
-                "libavformat-free",
-                "libavutil-free",
-                "libpostproc-free",
-                "libswresample-free",
-                "libswscale-free",
-                "mesa-va-drivers"
-            ],
-            "mate": [
+        "libavcodec-free",
+        "libavdevice-free",
+        "libavfilter-free",
+        "libavformat-free",
+        "libavutil-free",
+        "libpostproc-free",
+        "libswresample-free",
+        "libswscale-free",
+        "mesa-va-drivers"
+      ],
+      "mate": [
         "python3-unbound",
         "systemd-oomd-defaults"
       ]
@@ -189,7 +190,7 @@
   "37": {
     "include": {
       "all": [],
-        "mate": [
+      "mate": [
         "f37-backgrounds-base",
         "f37-backgrounds-extras-base",
         "f37-backgrounds-extras-mate",
@@ -197,9 +198,7 @@
       ]
     },
     "exclude": {
-      "all": [
-
-      ]
+      "all": []
     }
   },
   "38": {
@@ -217,3 +216,5 @@
     }
   }
 }
+
+
