@@ -1,0 +1,62 @@
+flatpaks:
+  - name: Firefox
+    ref: org.mozilla.firefox
+  - name: Geary
+    ref: org.gnome.Geary
+  - name: ProtonMail Bridge
+    ref: ch.protonmail.protonmail-bridge
+  - name: Postman
+    ref: com.getpostman.Postman
+  - name: Flatseal
+    ref: com.github.tchx84.Flatseal
+  - name: NewsFlash
+    ref: com.gitlab.newsflash
+  - name: Logseq
+    ref: com.logseq.Logseq
+  - name: Extension Manager
+    ref: com.mattjakeman.ExtensionManager
+  - name: Nextcloud Desktop
+    ref: com.nextcloud.desktopclient.nextcloud
+  - name: Slack
+    ref: com.slack.Slack
+  - name: Spotify
+    ref: com.spotify.Client
+  - name: Steam
+    ref: com.valvesoftware.Steam
+  - name: MangoHud
+    ref: org.freedesktop.Platform.VulkanLayer.MangoHud
+  - name: Fragments
+    ref: de.haeckerfelix.Fragments
+  - name: Element
+    ref: im.riot.Riot
+  - name: What's app
+    ref: io.github.mimbrero.WhatsAppDesktop
+  - name: Signal
+    ref: org.signal.Signal
+  - name: ProtonPlus
+    ref: com.vysp3r.ProtonPlus
+  - name: LibreOffice
+    ref: org.freedesktop.Platform.VulkanLayer.MangoHud
+  - name: Video Trimmer
+    ref: org.gnome.gitlab.YaLTeR.VideoTrimmer
+  - name: gThumb (image viewer / editor)
+    ref: org.gnome.gThumb
+  - name: Discord
+    ref: com.discordapp.Discord
+scripts:
+  - name: Install nix. Will reboot
+    commands:
+      - bash <(curl -s https://raw.githubusercontent.com/dnkmmr69420/nix-installer-scripts/main/installer-scripts/silverblue-nix-installer.sh)
+      - sudo groupadd nix-user
+      - sudo chown root:nix-user /nix/var/nix/profiles
+      - sudo chmod g+w /nix/var/nix/profiles
+      - sudo reboot
+  - name: Set up nix for user (after nix install). Will reboot
+    commands:
+      - sudo usermod -aG nix-user $USER
+      - sudo reboot
+  - name: Setup Fleek (after user nix set up)
+    commands:
+      - mkdir -p ~/.config/nix
+      - echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+      - nix run github:ublue-os/fleek -- join git@github.com:lamarios/fleek

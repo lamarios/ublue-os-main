@@ -2,22 +2,16 @@
     "all": {
         "include": {
             "all": [
-                "apr",
-                "apr-util",
                 "distrobox",
-                "ffmpeg",
-                "ffmpeg-libs",
                 "fzf",
                 "htop",
                 "intel-media-driver",
-                "just",
                 "kernel-devel-matched",
                 "kernel-tools",
                 "libratbag-ratbagd",
                 "libva-intel-driver",
                 "libva-utils",
                 "lshw",
-                "mesa-va-drivers-freeworld",
                 "nvme-cli",
                 "nvtop",
                 "openrgb-udev-rules",
@@ -25,14 +19,23 @@
                 "podman-compose",
                 "pipewire-codec-aptx",
                 "smartmontools",
-                "tmux",
                 "vim",
-                "zstd"
+                "zstd",
+                "autojump-zsh",
+                "i2c-tools",
+                "corectrl",
+                "restic",
+                "steam-devices",
+                "tailscale",
+                "zsh"
             ],
             "silverblue": [
                 "adw-gtk3-theme",
                 "ffmpegthumbnailer",
-                "gnome-tweaks"
+                "gnome-tweaks",
+                "gnome-console",
+                "gnome-shell-extension-appindicator",
+                "gnome-shell-extension-gsconnect"
             ],
             "lxqt": [
                 "breeze-cursor-theme",
@@ -174,15 +177,8 @@
         },
         "exclude": {
             "all": [
-                "libavcodec-free",
-                "libavdevice-free",
-                "libavfilter-free",
-                "libavformat-free",
-                "libavutil-free",
-                "libpostproc-free",
-                "libswresample-free",
-                "libswscale-free",
-                "mesa-va-drivers"
+                "firefox",
+                "firefox-langpacks"
             ],
             "mate": [
                 "python3-unbound",
@@ -192,7 +188,13 @@
     },
     "37": {
         "include": {
-            "all": [],
+            "all": [
+                "docker-ce",
+                "docker-ce-cli",
+                "containerd.io",
+                "docker-buildx-plugin",
+                "docker-compose-plugin"
+            ],
             "mate": [
                 "f37-backgrounds-base",
                 "f37-backgrounds-extras-base",
