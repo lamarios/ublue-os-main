@@ -1,7 +1,7 @@
 name: build-ublue
 on:
   pull_request:
-  merge_group:    
+  merge_group:
   schedule:
     - cron: '0 7 * * *'  # 7 am everyday
   workflow_dispatch:
@@ -19,14 +19,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image_flavor: [main, nvidia]
-        image_name: [silverblue, kinoite, vauxite, sericea, base, lxqt, mate]
-        major_version: [37, 38]
-        nvidia_version: [0, 470, 535]
+        image_flavor: [main]
+        image_name: [silverblue, kinoite]
+        major_version: [38]
+        nvidia_version: [0]
         include:
-          - major_version: 37
-            is_latest_version: false
-            is_stable_version: true
+         # - major_version: 37
+         #   is_latest_version: false
+         #   is_stable_version: true
           - major_version: 38
             is_latest_version: true
             is_stable_version: true
@@ -43,7 +43,7 @@ jobs:
             nvidia_version: 535
           - image_flavor: nvidia
             nvidia_version: 0
-    steps: 
+    steps:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v3

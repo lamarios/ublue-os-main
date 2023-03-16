@@ -1,0 +1,43 @@
+title: Welcome to uBlue
+properties:
+  mode: "run-on-change"
+screens:
+  first-screen:
+    source: yafti.screen.title
+    values:
+      title: "Welcome CalvadOS"
+      icon: "/path/to/icon"
+      description: |
+        This guided installer will help you get started with your new system.
+  applications:
+    source: yafti.screen.package
+    values:
+      title: Application Installer
+      show_terminal: true
+      package_manager: yafti.plugin.flatpak
+      package_manager_defaults:
+        user: false
+        system: true
+      groups:
+        Base apps:
+          description: Core system applications for the GNOME desktop environment.
+          default: true
+          packages:
+           - MangoHUD: org.freedesktop.Platform.VulkanLayer.MangoHud
+           - FlatSeal: com.github.tchx84.Flatseal
+           - Steam: com.valvesoftware.Steam
+
+  final-screen:
+    source: yafti.screen.title
+    values:
+      title: "All done!"
+      icon: "/path/to/icon"
+      links:
+        - "Install More Applications":
+            run: /usr/bin/gnome-software
+        - "Website":
+            run: /usr/bin/xdg-open https://ublue.it
+        - "Join the Discord Community":
+            run: /usr/bin/xdg-open https://discord.gg/XjG48C7VHx
+      description: |
+        Thanks for trying uBlue, we hope you enjoy it!
