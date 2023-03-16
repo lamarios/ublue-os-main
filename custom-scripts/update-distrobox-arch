@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+podman pull ghcr.io/lamarios/distrobox-arch
+podman rm -f arch
+distrobox create arch --image ghcr.io/lamarios/distrobox-arch

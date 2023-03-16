@@ -2,15 +2,12 @@
     "all": {
         "include": {
             "all": [
-                "apr",
-                "apr-util",
                 "distrobox",
                 "ffmpeg",
                 "ffmpeg-libs",
                 "fzf",
                 "htop",
                 "intel-media-driver",
-                "just",
                 "kernel-devel-matched",
                 "libva-intel-driver",
                 "libva-utils",
@@ -21,11 +18,23 @@
                 "pipewire-codec-aptx",
                 "smartmontools",
                 "vim",
-                "zstd"
+                "zstd",
+                "autojump-zsh",
+                "i2c-tools",
+                "corectrl",
+                "restic",
+                "steam-devices",
+                "tailscale",
+                "zsh",
+                "mesa-vdpau-drivers-freeworld",
+                "plymouth-theme-charge"
             ],
             "silverblue": [
                 "ffmpegthumbnailer",
-                "gnome-tweaks"
+                "gnome-tweaks",
+                "gnome-console",
+                "gnome-shell-extension-appindicator",
+                "gnome-shell-extension-gsconnect"
             ],
             "lxqt": [
                 "breeze-cursor-theme",
@@ -182,7 +191,13 @@
     },
     "37": {
         "include": {
-            "all": [],
+            "all": [
+                "docker-ce",
+                "docker-ce-cli",
+                "containerd.io",
+                "docker-buildx-plugin",
+                "docker-compose-plugin"
+            ],
             "mate": [
                 "f37-backgrounds-base",
                 "f37-backgrounds-extras-base",

@@ -11,11 +11,23 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 ADD build.sh /tmp/build.sh
 ADD post-install.sh /tmp/post-install.sh
 ADD packages.json /tmp/packages.json
+ADD repos/tailscale.repo /etc/yum.repos.d/tailscale.repo
+ADD repos/docker-ce.repo /etc/yum.repos.d/docker-ce.repo
+ADD config/etc/xdg/user-dirs.defaults /etc/xdg/user-dirs.defaults
+ADD config/etc/dconf/db/local.d/01-custom-config /etc/dconf/db/local.d/01-custom-config
+ADD custom-scripts/update-distrobox-arch /usr/bin/update-distrobox-arch
+
+RUN chmod +x /usr/bin/update-distrobox-arch
+
+RUN dconf update
 
 COPY --from=ghcr.io/ublue-os/config:latest /rpms /tmp/rpms
 
 RUN /tmp/build.sh
 RUN /tmp/post-install.sh
+
 RUN rm -rf /tmp/* /var/*
+
+
 RUN ostree container commit
 RUN mkdir -p /var/tmp && chmod -R 1777 /var/tmp

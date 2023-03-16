@@ -1,0 +1,15 @@
+FROM archlinux
+
+RUN  pacman -Syu --noconfirm --needed git base-devel
+
+RUN useradd --no-create-home --shell=/bin/false build && usermod -L build
+RUN echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+USER build
+WORKDIR /tmp
+RUN git clone https://aur.archlinux.org/yay.git \
+&& cd yay \
+&& HOME=/tmp  makepkg -si  --noconfirm
+
+RUN HOME=/tmp yay -S --noconfirm aws-vault chamber s-tui k9s postgresql newman cosign jdk17-openjdk flyway kubectl inetutils neofetch imagemagick aws-cli-v2

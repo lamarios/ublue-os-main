@@ -1,0 +1,32 @@
+[org/gnome/desktop/wm/keybindings]
+
+close=['<Super>q']
+cycle-group=['<Super>w']
+cycle-group-backward=['<Shift><Super>w']
+
+[org/gnome/desktop/interface]
+
+color-scheme='prefer-dark'
+
+[org/shell/desktop/wm/preferences]
+button-layout='appmenu:minimize,maximize,close'
+
+
+[org/gnome/mutter]
+
+experimental-features=['scale-monitor-framebuffer']
+
+[org/gnome/shell]
+
+favorite-apps=['org.gnome.Console.desktop', 'firefox.desktop', 'org.gnome.Software.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Settings.desktop']
+enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com']
+
+[org/gnome/desktop/input-sources]
+
+mru-sources=[('xkb', 'us'), ('xkb', 'us+intl')]
+per-window=false
+sources=[('xkb', 'us'), ('xkb', 'us+intl')]
+xkb-options=['caps:escape']
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='list-view'

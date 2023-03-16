@@ -15,7 +15,7 @@ on:
       - '**.md'
       - '**.txt'
 env:
-    IMAGE_BASE_NAME: main
+    IMAGE_BASE_NAME: paulos
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
@@ -29,7 +29,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image_name: [silverblue, kinoite, vauxite, sericea, base, lxqt, mate]
+#        image_name: [silverblue, kinoite, vauxite, sericea, base, lxqt, mate]
+        image_name: [silverblue, base]
         major_version: [37, 38]
         include:
           - major_version: 37
@@ -43,7 +44,7 @@ jobs:
           # When F38 is added, sericea will automatically be built too
           - image_name: sericea
             major_version: 37
-    steps: 
+    steps:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v3
