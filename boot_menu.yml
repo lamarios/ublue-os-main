@@ -2,7 +2,7 @@ ublue_variants:
   - label: ublue-os/main
     ks: /kickstart/ublue-os.ks
     flavors:
-      - label: silverblue-main
+      - label: silverblue-paulos
         info: GNOME
       - label: kinoite-main
         info: KDE

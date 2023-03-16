@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Lpis
+Comment=Post install flatpak install sync
+Icon=applications-other
+Exec=konsole -e "lpis --kde"
+Categories=Utility;

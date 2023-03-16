@@ -2,19 +2,12 @@
     "all": {
         "include": {
             "all": [
-                "alsa-firmware",
-                "apr",
-                "apr-util",
                 "distrobox",
-                "ffmpeg",
-                "ffmpeg-libs",
-                "ffmpegthumbnailer",
                 "fzf",
                 "grub2-tools-extra",
                 "heif-pixbuf-loader",
                 "htop",
                 "intel-media-driver",
-                "just",
                 "kernel-devel-matched",
                 "kernel-tools",
                 "libheif-freeworld",
@@ -23,7 +16,6 @@
                 "libva-intel-driver",
                 "libva-utils",
                 "lshw",
-                "mesa-va-drivers-freeworld",
                 "net-tools",
                 "google-noto-sans-javanese-fonts",
                 "google-noto-sans-balinese-fonts",
@@ -37,15 +29,28 @@
                 "smartmontools",
                 "symlinks",
                 "tcpdump",
-                "tmux",
                 "traceroute",
                 "vim",
                 "zstd",
-                "wireguard-tools"
+                "i2c-tools",
+                "corectrl",
+                "restic",
+                "steam-devices",
+                "tailscale",
+                "zsh",
+                "docker-ce",
+                "docker-ce-cli",
+                "containerd.io",
+                "docker-buildx-plugin",
+                "docker-compose-plugin"
             ],
             "silverblue": [
                 "adw-gtk3-theme",
+                "ffmpegthumbnailer",
                 "gnome-tweaks",
+                "gnome-console",
+                "gnome-shell-extension-appindicator",
+                "gnome-shell-extension-gsconnect",
                 "raw-thumbnailer"
             ],
             "kinoite": [
@@ -53,6 +58,8 @@
                 "kate",
                 "kcron",
                 "kio-admin",
+                "kmail",
+                "kalendar",
                 "ksshaskpass"
             ],
             "lxqt": [
@@ -200,15 +207,8 @@
         },
         "exclude": {
             "all": [
-                "libavcodec-free",
-                "libavdevice-free",
-                "libavfilter-free",
-                "libavformat-free",
-                "libavutil-free",
-                "libpostproc-free",
-                "libswresample-free",
-                "libswscale-free",
-                "mesa-va-drivers"
+                "firefox",
+                "firefox-langpacks"
             ],
             "kinoite": [
                 "plasma-discover-rpm-ostree",
@@ -223,7 +223,13 @@
     },
     "37": {
         "include": {
-            "all": [],
+            "all": [
+                "docker-ce",
+                "docker-ce-cli",
+                "containerd.io",
+                "docker-buildx-plugin",
+                "docker-compose-plugin"
+            ],
             "mate": [
                 "f37-backgrounds-base",
                 "f37-backgrounds-extras-base",
