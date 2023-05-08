@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Development;IDE;
+Exec=/usr/share/intellij/bin/idea.sh
+GenericName=Capable and Ergonomic IDE for the Java Virtual Machine
+Icon=/usr/share/intellij/bin/idea.png
+Keywords=development;idea;ide;intellij;java;
+Name=IntelliJ IDEA Ultimate
+StartupNotify=true
+StartupWMClass=jetbrains-idea-ultimate
+Terminal=false
+Type=Application
