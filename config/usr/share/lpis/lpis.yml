@@ -60,3 +60,7 @@ scripts:
       - mkdir -p ~/.config/nix
       - echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
       - nix run github:ublue-os/fleek -- join git@github.com:lamarios/fleek
+  - name: Setup nixGL (last  nix step)
+    commands:
+      - nix-channel --add https://github.com/guibou/nixGL/archive/main.tar.gz nixgl && nix-channel --update
+      - nix profile install github:guibou/nixGL --impure
