@@ -43,6 +43,10 @@ flatpaks:
     ref: org.gnome.gThumb
   - name: Discord
     ref: com.discordapp.Discord
+  - name: Adw-gtk3
+    ref: org.gtk.Gtk3theme.adw-gtk3
+  - name: Adw-gtk3-dark
+    ref: org.gtk.Gtk3theme.adw-gtk3-dark
 scripts:
   - name: Install nix. Will reboot
     commands:
