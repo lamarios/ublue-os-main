@@ -24,7 +24,7 @@ RUN dconf update
 # install lpis
 RUN cd /tmp && wget https://github.com/lamarios/lpis/releases/latest/download/lpis-linux-amd64.tar.gz -O lpis.tar.gz && tar xvf lpis.tar.gz && cp lpis /usr/bin/lpis && chmod +x /usr/bin/lpis
 # Install intellij
-RUN cd /tmp && wget https://download.jetbrains.com/product?code=IU&latest&distribution=linux -O /tmp/intellij.tar.gz && mkdir /tmp/intellij && \
+RUN cd /tmp && wget "https://download.jetbrains.com/product?code=IU&latest&distribution=linux" -O /tmp/intellij.tar.gz && mkdir /tmp/intellij && \
    tar xvf /tmp/intellij.tar.gz  -C /tmp/intellij --strip-components=1
 RUN mv /tmp/intellij /usr/share/intellij
 
