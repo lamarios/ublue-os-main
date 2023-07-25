@@ -31,8 +31,7 @@ RUN cd /tmp && wget https://github.com/lamarios/lpis/releases/latest/download/lp
 
 
 COPY --from=ghcr.io/ublue-os/config:latest /rpms /tmp/rpms
-#COPY --from=ghcr.io/ublue-os/akmods:${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
-RUN mkdir /tmp/akmods-rpms
+COPY --from=ghcr.io/ublue-os/akmods:${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
 
 
 # Renaming os
@@ -41,8 +40,6 @@ RUN sed  's/NAME="Fedora Linux/NAME="CalvadOS/' /usr/lib/os-release -i
 
 RUN /tmp/build.sh
 RUN /tmp/post-install.sh
-
 RUN rm -rf /tmp/* /var/*
-
 RUN ostree container commit
 RUN mkdir -p /var/tmp && chmod -R 1777 /var/tmp
