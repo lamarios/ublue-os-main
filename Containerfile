@@ -27,7 +27,7 @@ RUN cd /tmp && wget https://github.com/lamarios/lpis/releases/latest/download/lp
 
 # Install auto-epp
 # for amd laptop only
-RUN wget https://raw.githubusercontent.com/jothi-prasath/auto-epp/master/auto-epp -O /usr/bin/auto-epp
+RUN wget https://raw.githubusercontent.com/jothi-prasath/auto-epp/master/auto-epp -O /usr/bin/auto-epp && chmod +x /usr/bin/auto-epp
 RUN wget https://raw.githubusercontent.com/jothi-prasath/auto-epp/master/auto-epp.service -O /etc/systemd/system/auto-epp.service
 
 
