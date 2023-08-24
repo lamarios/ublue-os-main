@@ -45,6 +45,7 @@
                 "docker-compose-plugin",
                 "corectrl",
                 "python3-psutil",
+                "python3-pip",
                 "system76-scheduler"
             ],
             "silverblue": [
