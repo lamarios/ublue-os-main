@@ -51,10 +51,10 @@ RUN /tmp/post-install.sh
 
 # Cleanup & Finalize
 RUN systemctl enable com.system76.Scheduler.service && \
-    pip install --prefix=/usr yafti && \
-    if grep -q "kinoite" <<< "${IMAGE_NAME}"; then \
-         systemctl --global enable com.system76.Scheduler.dbusproxy.service \
-    ; fi
+    pip install --prefix=/usr yafti
+#  if grep -q "kinoite" <<< "${IMAGE_NAME}"; then \
+#       systemctl --global enable com.system76.Scheduler.dbusproxy.service \
+#  ; fi
 
 RUN rm -rf /tmp/* /var/*
 RUN ostree container commit

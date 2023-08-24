@@ -23,9 +23,9 @@ screens:
           description: Core system applications for the GNOME desktop environment.
           default: true
           packages:
-            MangoHUD: org.freedesktop.Platform.VulkanLayer.MangoHud
-            FlatSeal: com.github.tchx84.Flatseal
-            Steam: com.valvesoftware.Steam
+           - MangoHUD: org.freedesktop.Platform.VulkanLayer.MangoHud
+           - FlatSeal: com.github.tchx84.Flatseal
+           - Steam: com.valvesoftware.Steam
 
   final-screen:
     source: yafti.screen.title
