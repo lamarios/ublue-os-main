@@ -53,7 +53,7 @@ RUN /tmp/post-install.sh
 RUN systemctl enable com.system76.Scheduler.service && \
     pip install --prefix=/usr yafti && \
     if grep -q "kinoite" <<< "${IMAGE_NAME}"; then \
-        systemctl --global enable com.system76.Scheduler.dbusproxy.service \
+        systemctl --global enable system76-scheduler-proxy.service \
     ; fi
 
 RUN rm -rf /tmp/* /var/*
