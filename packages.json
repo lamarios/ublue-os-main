@@ -51,6 +51,7 @@
             "silverblue": [
                 "adw-gtk3-theme",
                 "gnome-tweaks",
+                "gnome-console",
                 "raw-thumbnailer"
             ],
             "kinoite": [
