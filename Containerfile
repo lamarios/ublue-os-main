@@ -48,7 +48,6 @@ RUN sed  's/NAME="Fedora Linux/NAME="CalvadOS/' /usr/lib/os-release -i
 
 RUN /tmp/build.sh
 RUN /tmp/post-install.sh
-RUN rm -rf /tmp/* /var/*
 
 # Cleanup & Finalize
 RUN systemctl enable com.system76.Scheduler.service && \
@@ -57,5 +56,6 @@ RUN systemctl enable com.system76.Scheduler.service && \
         systemctl --global enable com.system76.Scheduler.dbusproxy.service \
     ; fi
 
+RUN rm -rf /tmp/* /var/*
 RUN ostree container commit
 RUN mkdir -p /var/tmp && chmod -R 1777 /var/tmp
