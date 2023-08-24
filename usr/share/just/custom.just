@@ -1,4 +1,7 @@
 # Include some of your custom scripts here!
+default:
+    @just --unstable --list
+
 install-nix:
   bash <(curl -s https://raw.githubusercontent.com/dnkmmr69420/nix-installer-scripts/main/installer-scripts/silverblue-nix-installer.sh)
 
