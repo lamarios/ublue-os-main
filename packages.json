@@ -8,6 +8,7 @@
                 "heif-pixbuf-loader",
                 "htop",
                 "intel-media-driver",
+                "just",
                 "kernel-devel-matched",
                 "kernel-tools",
                 "libheif-freeworld",
@@ -43,15 +44,12 @@
                 "docker-buildx-plugin",
                 "docker-compose-plugin",
                 "corectrl",
-                "python3-psutil"
+                "python3-psutil",
+                "system76-scheduler"
             ],
             "silverblue": [
                 "adw-gtk3-theme",
-                "ffmpegthumbnailer",
                 "gnome-tweaks",
-                "gnome-console",
-                "gnome-shell-extension-appindicator",
-                "gnome-shell-extension-gsconnect",
                 "raw-thumbnailer"
             ],
             "kinoite": [
@@ -59,8 +57,6 @@
                 "kate",
                 "kcron",
                 "kio-admin",
-                "kmail",
-                "kalendar",
                 "ksshaskpass"
             ],
             "lxqt": [

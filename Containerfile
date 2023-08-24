@@ -7,40 +7,55 @@ FROM ${BASE_IMAGE}:${FEDORA_MAJOR_VERSION} AS builder
 ARG IMAGE_NAME="${IMAGE_NAME}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 
+ADD github-release-install.sh /tmp/github-release-install.sh
 ADD build.sh /tmp/build.sh
 ADD post-install.sh /tmp/post-install.sh
 ADD packages.json /tmp/packages.json
 ADD repos/tailscale.repo /etc/yum.repos.d/tailscale.repo
 ADD repos/docker-ce.repo /etc/yum.repos.d/docker-ce.repo
-ADD config/etc/xdg/user-dirs.defaults /etc/xdg/user-dirs.defaults
-ADD config/usr/share/lpis/lpis.yml /usr/share/lpis/lpis.yml
-ADD config/etc/dconf/db/local.d/01-custom-config /etc/dconf/db/local.d/01-custom-config
-ADD config/etc/xdg/autostart/lpis.desktop /etc/xdg/autostart/lpis.desktop
-ADD config/etc/xdg/autostart/lpis-kde.desktop /etc/xdg/autostart/lpis-kde.desktop
-ADD config/etc/sysctl.d/90-override.conf /etc/sysctl.d/90-override.conf
-ADD config/usr/share/applications/com.jetbrains.IntelliJ-IDEA-Ultimate.desktop /usr/share/applications/com.jetbrains.IntelliJ-IDEA-Ultimate.desktop
+
+
+# Copy static configurations and component files.
+# Warning: If you want to place anything in "/etc" of the final image, you MUST
+# place them in "./usr/etc" in your repo, so that they're written to "/usr/etc"
+# on the final system. That is the proper directory for "system" configuration
+# templates on immutable Fedora distros, whereas the normal "/etc" is ONLY meant
+# for manual overrides and editing by the machine's admin AFTER installation!
+# See issue #28 (https://github.com/ublue-os/startingpoint/issues/28).
+COPY usr /usr
+
+# Setup Copr repos
+RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-$(rpm -E %fedora)/kylegospo-system76-scheduler-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-system76-scheduler.repo
 
 RUN dconf update
 
-# install lpis
-RUN cd /tmp && wget https://github.com/lamarios/lpis/releases/latest/download/lpis-linux-amd64.tar.gz -O lpis.tar.gz && tar xvf lpis.tar.gz && cp lpis /usr/bin/lpis && chmod +x /usr/bin/lpis
-
-# Install auto-epp
-# for amd laptop only
-RUN wget https://raw.githubusercontent.com/jothi-prasath/auto-epp/master/auto-epp -O /usr/bin/auto-epp && chmod +x /usr/bin/auto-epp
-RUN wget https://raw.githubusercontent.com/jothi-prasath/auto-epp/master/auto-epp.service -O /etc/systemd/system/auto-epp.service
-
-
 COPY --from=ghcr.io/ublue-os/config:latest /rpms /tmp/rpms
 COPY --from=ghcr.io/ublue-os/akmods:${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
+
+
+RUN if grep -q "kinoite" <<< "${IMAGE_NAME}"; then \
+    git clone https://github.com/maxiberta/kwin-system76-scheduler-integration.git --depth 1 /tmp/kwin-system76-scheduler-integration && \
+    kpackagetool5 --type=KWin/Script --global --install /tmp/kwin-system76-scheduler-integration && \
+    rm -rf /tmp/kwin-system76-scheduler-integration \
+; fi
 
 
 # Renaming os
 RUN sed  's/NAME="Fedora Linux/NAME="CalvadOS/' /etc/os-release -i
 RUN sed  's/NAME="Fedora Linux/NAME="CalvadOS/' /usr/lib/os-release -i
 
+
+
 RUN /tmp/build.sh
 RUN /tmp/post-install.sh
 RUN rm -rf /tmp/* /var/*
+
+# Cleanup & Finalize
+RUN systemctl enable com.system76.Scheduler.service && \
+    pip install --prefix=/usr yafti && \
+    if grep -q "kinoite" <<< "${IMAGE_NAME}"; then \
+        systemctl --global enable com.system76.Scheduler.dbusproxy.service \
+    ; fi
+
 RUN ostree container commit
 RUN mkdir -p /var/tmp && chmod -R 1777 /var/tmp
