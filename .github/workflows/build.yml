@@ -30,8 +30,8 @@ jobs:
           - major_version: 38
             is_latest_version: true
             is_stable_version: true
-          - nvidia_version: 535
-            is_latest_nvidia: true
+         # - nvidia_version: 535
+         #   is_latest_nvidia: true
         exclude:
           # There is no Fedora 37 version of sericea
           # When F38 is added, sericea will automatically be built too

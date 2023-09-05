@@ -19,5 +19,5 @@ install-auto-epp:
   systemctl daemon-reload
   systemctl enable --now auto-epp.service
 
-set-up-amd-gpu
+set-up-amd-gpu:
   rpm-ostree kargs --append=amdgpu.ppfeaturemask=0xffffffff --append=drm.vblankoffdelay=0
